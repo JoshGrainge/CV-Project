@@ -1,0 +1,47 @@
+* {
+  margin: 1px;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+.resume-container {
+  width: 210mm;
+  height: 297mm;
+
+  padding: 10px;
+}
+
+.header {
+  text-align: center;
+}
+
+.header > p {
+  display: inline;
+}
+
+.text-row {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 5px;
+}
+
+.text-section {
+  width: 95%;
+  margin: auto;
+}
+
+ul {
+  margin-left: 30px;
+}
+
+hr,
+ul > li,
+.skills-text > p {
+  margin-bottom: 5px;
+}
+
+h2 {
+  margin-top: 15px;
+}
