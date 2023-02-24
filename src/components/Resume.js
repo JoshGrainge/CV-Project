@@ -39,13 +39,9 @@ class Resume extends Component {
 
           <SectionHeader name="Projects" />
           <div className="text-section">
-            <ProjectItem
-              title="Sky Arcade"
-              tools="Unity, Git, C#"
-              start="July 2022"
-              end="November 2022"
-              descriptions={["Description", "Description", "Description"]}
-            />
+            {this.props.projectInfos.map((projectInfo, i) => {
+              return <ProjectItem key={i} info={projectInfo} />;
+            })}
           </div>
 
           <SectionHeader name="Technical Skills" />

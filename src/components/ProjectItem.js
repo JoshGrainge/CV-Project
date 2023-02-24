@@ -12,14 +12,14 @@ class ProjectItem extends Component {
       <div>
         <div className="text-row">
           <p>
-            <span className="bold">{this.props.title}</span> |{" "}
-            <span className="sub">{this.props.tools}</span>
+            <span className="bold">{this.props.info.title}</span> |{" "}
+            <span className="sub">{this.props.info.tools}</span>
           </p>
           <p>
-            {this.props.start} - {this.props.end}
+            {this.props.info.start} - {this.props.info.end}
           </p>
         </div>
-        <DescriptionList descriptions={this.props.descriptions} />
+        <DescriptionList descriptions={this.props.info.descriptions} />
       </div>
     );
   }

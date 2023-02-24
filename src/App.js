@@ -3,6 +3,7 @@ import "./App.css";
 import Resume from "./components/Resume";
 import EducationInfo from "./EducationInfo";
 import ExperienceInfo from "./ExperienceInfo";
+import ProjectInfo from "./ProjectInfo";
 
 class App extends Component {
   constructor(props) {
@@ -51,12 +52,38 @@ class App extends Component {
       ),
     ];
 
+    const projectInfos = [
+      ProjectInfo(
+        "Thief Game",
+        "Unity, C#, Git, Visual Studio 2019",
+        "May 2019",
+        "Ongoing",
+        [
+          "Created FSM AI system",
+          "Created custom player controller",
+          "Created branch dialogue system",
+        ]
+      ),
+      ProjectInfo(
+        "Out of Control",
+        "Unity, C#, Git, Visual Studio 2020",
+        "May 2019",
+        "May 2019",
+        [
+          "Created player controller",
+          "Collaborated with team members to create project",
+          "Used communication apps like Slack, Discord, and Zoom to collaborate",
+        ]
+      ),
+    ];
+
     //#endregion
 
     return (
       <Resume
         educationInfos={educationInfos}
         experienceInfos={experienceInfos}
+        projectInfos={projectInfos}
       />
     );
   }
