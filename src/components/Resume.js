@@ -25,21 +25,16 @@ class Resume extends Component {
         <div className="resume-body">
           <SectionHeader name="Education" />
           <div className="text-section">
-            {this.props.educationInfos.map((educationInfo) => {
-              return <EducationItem info={educationInfo} />;
+            {this.props.educationInfos.map((educationInfo, i) => {
+              return <EducationItem key={i} info={educationInfo} />;
             })}
           </div>
 
           <SectionHeader name="Experience" />
           <div className="text-section">
-            <ExperienceItem
-              title="Front End Developer"
-              start="Jan. 2019"
-              end="Sept. 2022"
-              company="Google"
-              location="San Francisco USA"
-              descriptions={["Description2", "Description2", "Description2"]}
-            />
+            {this.props.experienceInfos.map((experienceInfo, i) => {
+              return <ExperienceItem key={i} info={experienceInfo} />;
+            })}
           </div>
 
           <SectionHeader name="Projects" />
