@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import Header from "./components/Header";
 import SectionHeader from "./components/SectionHeader";
 import EducationItem from "./components/EducationItem";
 import ExperienceItem from "./components/ExperienceItem";
@@ -15,12 +16,12 @@ class App extends Component {
   render() {
     return (
       <div className="resume-container">
-        <div className="header">
-          <h1>Josh Grainge</h1>
-          <p>Location</p>
-          <p>Phone</p>
-          <p>Email</p>
-        </div>
+        <Header
+          name="Josh Grainge"
+          location="Canada"
+          phone="555-5555"
+          email="email@email.com"
+        />
 
         <div className="resume-body">
           <SectionHeader name="Education" />
