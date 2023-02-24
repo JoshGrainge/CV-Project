@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 import SectionHeader from "./components/SectionHeader";
-import DescriptionList from "./components/DescriptionList";
 import EducationItem from "./components/EducationItem";
 import ExperienceItem from "./components/ExperienceItem";
+import ProjectItem from "./components/ProjectItem";
 
 class App extends Component {
   constructor(props) {
@@ -47,11 +47,11 @@ class App extends Component {
 
           <SectionHeader name="Projects" />
           <div className="text-section">
-            <div className="text-row">
-              <p>Title | JavaScript CSS HTML</p>
-              <p>Start - End</p>
-            </div>
-            <DescriptionList
+            <ProjectItem
+              title="Sky Arcade"
+              tools="Unity, Git, C#"
+              start="July 2022"
+              end="November 2022"
               tasks={["Description", "Description", "Description"]}
             />
           </div>
