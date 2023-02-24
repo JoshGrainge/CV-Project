@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import SectionHeader from "./components/SectionHeader";
 import DescriptionList from "./components/DescriptionList";
+import EducationItem from "./components/EducationItem";
 
 class App extends Component {
   constructor(props) {
@@ -22,14 +23,13 @@ class App extends Component {
         <div className="resume-body">
           <SectionHeader name="Education" />
           <div className="text-section">
-            <div className="text-row">
-              <p>School name</p>
-              <p>Location</p>
-            </div>
-            <div className="text-row">
-              <p>Diploma name</p>
-              <p>Start - End</p>
-            </div>
+            <EducationItem
+              name="College"
+              location="Canada ON"
+              diploma="Bachelor"
+              start="Sept 2019"
+              end="April 2022"
+            />
           </div>
 
           <SectionHeader name="Experience" />
@@ -42,6 +42,7 @@ class App extends Component {
               <p>Company</p>
               <p>Location</p>
             </div>
+
             <DescriptionList
               tasks={["Description", "Description", "Description"]}
             />
