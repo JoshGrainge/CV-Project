@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import SectionHeader from "./components/SectionHeader";
 
 class App extends Component {
   constructor(props) {
@@ -18,8 +19,7 @@ class App extends Component {
         </div>
 
         <div className="resume-body">
-          <h2>Education</h2>
-          <hr />
+          <SectionHeader name="Education" />
           <div className="text-section">
             <div className="text-row">
               <p>School name</p>
@@ -31,8 +31,7 @@ class App extends Component {
             </div>
           </div>
 
-          <h2>Experience</h2>
-          <hr />
+          <SectionHeader name="Experience" />
           <div className="text-section">
             <div className="text-row">
               <p>Title</p>
@@ -49,8 +48,7 @@ class App extends Component {
             </ul>
           </div>
 
-          <h2>Projects</h2>
-          <hr />
+          <SectionHeader name="Projects" />
           <div className="text-section">
             <div className="text-row">
               <p>Title | JavaScript CSS HTML</p>
@@ -63,8 +61,7 @@ class App extends Component {
             </ul>
           </div>
 
-          <h2>Technical Skills</h2>
-          <hr />
+          <SectionHeader name="Technical Skills" />
           <div className="text-section">
             <div className="skills-text">
               <p>Languages: JavaScript, CSS, HTML, C#, Python, MySQL</p>
