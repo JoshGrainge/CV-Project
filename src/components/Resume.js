@@ -15,12 +15,7 @@ class Resume extends Component {
   render() {
     return (
       <div className="resume-container">
-        <Header
-          name="Josh Grainge"
-          location="Canada"
-          phone="555-5555"
-          email="email@email.com"
-        />
+        <Header info={this.props.headerInfo} />
 
         <div className="resume-body">
           <SectionHeader name="Education" />

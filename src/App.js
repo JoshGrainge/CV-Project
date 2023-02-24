@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Resume from "./components/Resume";
+import HeaderInfo from "./HeaderInfo";
 import EducationInfo from "./EducationInfo";
 import ExperienceInfo from "./ExperienceInfo";
 import ProjectInfo from "./ProjectInfo";
@@ -15,6 +16,13 @@ class App extends Component {
   render() {
     //#region Testing variables
     // These variable are just for testing
+    const headerInfo = HeaderInfo(
+      "Josh Grainge",
+      "Canada, ON",
+      "555-5555",
+      "Email@email.com"
+    );
+
     const educationInfos = [
       EducationInfo(
         "Harvard",
@@ -91,6 +99,7 @@ class App extends Component {
 
     return (
       <Resume
+        headerInfo={headerInfo}
         educationInfos={educationInfos}
         experienceInfos={experienceInfos}
         projectInfos={projectInfos}

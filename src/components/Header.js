@@ -9,10 +9,10 @@ class EducationItem extends Component {
   render() {
     return (
       <div className="header">
-        <h1>{this.props.name}</h1>
-        <p>{this.props.location}</p>
-        <p>{this.props.phone}</p>
-        <p>{this.props.email}</p>
+        <h1>{this.props.info.name}</h1>
+        <p>{this.props.info.location}</p>
+        <p>{this.props.info.phone}</p>
+        <p>{this.props.info.email}</p>
       </div>
     );
   }
