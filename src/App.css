@@ -1,3 +1,5 @@
+/* TODO change text-section to instead
+    just use each item individually, this will let us delete an unneeded div */
 * {
   margin: 1px;
   padding: 0;
