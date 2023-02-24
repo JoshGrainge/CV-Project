@@ -1,8 +1,8 @@
-function HeaderInfo(name, location, number, email) {
+function HeaderInfo(name, location, phone, email) {
   return {
     name: name,
     location: location,
-    number: number,
+    phone: phone,
     email: email,
   };
 }
