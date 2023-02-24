@@ -25,13 +25,9 @@ class Resume extends Component {
         <div className="resume-body">
           <SectionHeader name="Education" />
           <div className="text-section">
-            <EducationItem
-              name="College"
-              location="Canada ON"
-              diploma="Bachelor"
-              start="Sept 2019"
-              end="April 2022"
-            />
+            {this.props.educationInfos.map((educationInfo) => {
+              return <EducationItem info={educationInfo} />;
+            })}
           </div>
 
           <SectionHeader name="Experience" />

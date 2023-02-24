@@ -11,17 +11,17 @@ class EducationItem extends Component {
       <div>
         <div className="text-row">
           <p>
-            <span className="bold">{this.props.name}</span>
+            <span className="bold">{this.props.info.name}</span>
           </p>
-          <p>{this.props.location}</p>
+          <p>{this.props.info.location}</p>
         </div>
         <div className="text-row">
           <p>
-            <span className="sub">{this.props.diploma}</span>
+            <span className="sub">{this.props.info.diploma}</span>
           </p>
           <p>
             <span className="sub">
-              {this.props.start} - {this.props.end}
+              {this.props.info.start} - {this.props.info.end}
             </span>
           </p>
         </div>
