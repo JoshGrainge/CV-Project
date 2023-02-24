@@ -4,6 +4,7 @@ import SectionHeader from "./components/SectionHeader";
 import EducationItem from "./components/EducationItem";
 import ExperienceItem from "./components/ExperienceItem";
 import ProjectItem from "./components/ProjectItem";
+import TechnicalSkill from "./components/TechnicalSkill";
 
 class App extends Component {
   constructor(props) {
@@ -59,9 +60,15 @@ class App extends Component {
           <SectionHeader name="Technical Skills" />
           <div className="text-section">
             <div className="skills-text">
-              <p>Languages: JavaScript, CSS, HTML, C#, Python, MySQL</p>
-              <p>Frameworks: React</p>
-              <p>Tools: Git, Visual Studio, ItelliJ, Github</p>
+              <TechnicalSkill
+                title="Languages"
+                text="JavaScript, CSS, HTML, C#, Python, MySQL"
+              />
+              <TechnicalSkill title="Frameworks" text="React" />
+              <TechnicalSkill
+                title="Tools"
+                text="Git, Visual Studio, ItelliJ, Github"
+              />
             </div>
           </div>
         </div>
