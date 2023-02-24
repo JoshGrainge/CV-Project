@@ -19,8 +19,12 @@ class ExperienceItem extends Component {
           </p>
         </div>
         <div className="text-row">
-          <p>{this.props.company}</p>
-          <p>{this.props.location}</p>
+          <p>
+            <span className="sub">{this.props.company}</span>
+          </p>
+          <p>
+            <span className="sub">{this.props.location}</span>
+          </p>
         </div>
 
         <DescriptionList descriptions={this.props.descriptions} />

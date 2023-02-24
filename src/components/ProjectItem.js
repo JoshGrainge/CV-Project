@@ -13,7 +13,7 @@ class ProjectItem extends Component {
         <div className="text-row">
           <p>
             <span className="bold">{this.props.title}</span> |{" "}
-            {this.props.tools}
+            <span className="sub">{this.props.tools}</span>
           </p>
           <p>
             {this.props.start} - {this.props.end}

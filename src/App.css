@@ -38,6 +38,11 @@
   font-weight: bold;
 }
 
+.sub {
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
 ul {
   margin-left: 30px;
 }
