@@ -47,15 +47,9 @@ class Resume extends Component {
           <SectionHeader name="Technical Skills" />
           <div className="text-section">
             <div className="skills-text">
-              <TechnicalSkill
-                title="Languages"
-                text="JavaScript, CSS, HTML, C#, Python, MySQL"
-              />
-              <TechnicalSkill title="Frameworks" text="React" />
-              <TechnicalSkill
-                title="Tools"
-                text="Git, Visual Studio, ItelliJ, Github"
-              />
+              {this.props.technicalSkillInfos.map((technicalSkillInfo, i) => {
+                return <TechnicalSkill key={i} info={technicalSkillInfo} />;
+              })}
             </div>
           </div>
         </div>

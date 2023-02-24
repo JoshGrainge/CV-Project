@@ -4,6 +4,7 @@ import Resume from "./components/Resume";
 import EducationInfo from "./EducationInfo";
 import ExperienceInfo from "./ExperienceInfo";
 import ProjectInfo from "./ProjectInfo";
+import TechnicalSkillInfo from "./TechnicalSkillInfo";
 
 class App extends Component {
   constructor(props) {
@@ -77,6 +78,15 @@ class App extends Component {
       ),
     ];
 
+    const technicalSkillInfos = [
+      TechnicalSkillInfo(
+        "Languages",
+        "JavaScript, CSS, HTML, C#, Python, MySQL"
+      ),
+      TechnicalSkillInfo("Frameworks", "React"),
+      TechnicalSkillInfo("Tools", "Git, Visual Studio, ItelliJ, Github"),
+    ];
+
     //#endregion
 
     return (
@@ -84,6 +94,7 @@ class App extends Component {
         educationInfos={educationInfos}
         experienceInfos={experienceInfos}
         projectInfos={projectInfos}
+        technicalSkillInfos={technicalSkillInfos}
       />
     );
   }
