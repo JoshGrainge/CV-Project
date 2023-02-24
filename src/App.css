@@ -5,6 +5,8 @@
   padding: 0;
 
   box-sizing: border-box;
+
+  font-family: "Times New Roman", Times, serif;
 }
 
 .resume-container {
@@ -53,6 +55,13 @@ ul > li,
   margin-bottom: 5px;
 }
 
+hr {
+  height: 1px;
+  border: 0;
+  background-color: black;
+}
+
 h2 {
+  font-weight: lighter;
   margin-top: 15px;
 }
