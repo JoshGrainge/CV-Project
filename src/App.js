@@ -3,6 +3,7 @@ import "./App.css";
 import SectionHeader from "./components/SectionHeader";
 import DescriptionList from "./components/DescriptionList";
 import EducationItem from "./components/EducationItem";
+import ExperienceItem from "./components/ExperienceItem";
 
 class App extends Component {
   constructor(props) {
@@ -34,17 +35,13 @@ class App extends Component {
 
           <SectionHeader name="Experience" />
           <div className="text-section">
-            <div className="text-row">
-              <p>Title</p>
-              <p>Start - End</p>
-            </div>
-            <div className="text-row">
-              <p>Company</p>
-              <p>Location</p>
-            </div>
-
-            <DescriptionList
-              tasks={["Description", "Description", "Description"]}
+            <ExperienceItem
+              title="Title2"
+              start="Jan. 2019"
+              end="Sept. 2022"
+              company="Google"
+              location="San Francisco USA"
+              tasks={["Description2", "Description2", "Description2"]}
             />
           </div>
 
