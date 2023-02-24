@@ -11,7 +11,9 @@ class ExperienceItem extends Component {
     return (
       <div>
         <div className="text-row">
-          <p>{this.props.title}</p>
+          <p>
+            <span className="bold">{this.props.title}</span>
+          </p>
           <p>
             {this.props.start} - {this.props.end}
           </p>

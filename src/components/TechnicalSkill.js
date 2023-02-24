@@ -9,7 +9,7 @@ class ProjectItem extends Component {
   render() {
     return (
       <p>
-        {this.props.title}: {this.props.text}
+        <span className="bold">{this.props.title}:</span> {this.props.text}
       </p>
     );
   }

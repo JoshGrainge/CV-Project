@@ -12,7 +12,8 @@ class ProjectItem extends Component {
       <div>
         <div className="text-row">
           <p>
-            {this.props.title} | {this.props.tools}
+            <span className="bold">{this.props.title}</span> |{" "}
+            {this.props.tools}
           </p>
           <p>
             {this.props.start} - {this.props.end}

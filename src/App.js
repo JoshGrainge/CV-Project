@@ -37,7 +37,7 @@ class App extends Component {
           <SectionHeader name="Experience" />
           <div className="text-section">
             <ExperienceItem
-              title="Title2"
+              title="Front End Developer"
               start="Jan. 2019"
               end="Sept. 2022"
               company="Google"

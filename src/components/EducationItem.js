@@ -10,7 +10,9 @@ class EducationItem extends Component {
     return (
       <div>
         <div className="text-row">
-          <p>{this.props.name}</p>
+          <p>
+            <span className="bold">{this.props.name}</span>
+          </p>
           <p>{this.props.location}</p>
         </div>
         <div className="text-row">
