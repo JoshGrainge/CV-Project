@@ -42,7 +42,7 @@ class App extends Component {
               end="Sept. 2022"
               company="Google"
               location="San Francisco USA"
-              tasks={["Description2", "Description2", "Description2"]}
+              descriptions={["Description2", "Description2", "Description2"]}
             />
           </div>
 
@@ -53,7 +53,7 @@ class App extends Component {
               tools="Unity, Git, C#"
               start="July 2022"
               end="November 2022"
-              tasks={["Description", "Description", "Description"]}
+              descriptions={["Description", "Description", "Description"]}
             />
           </div>
 

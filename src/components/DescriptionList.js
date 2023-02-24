@@ -9,8 +9,8 @@ class DescriptionList extends Component {
   render() {
     return (
       <ul>
-        {this.props.tasks.map((task, i) => {
-          return <li key={i}>{task}</li>;
+        {this.props.descriptions.map((description, i) => {
+          return <li key={i}>{description}</li>;
         })}
       </ul>
     );

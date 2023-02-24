@@ -21,7 +21,7 @@ class ExperienceItem extends Component {
           <p>{this.props.location}</p>
         </div>
 
-        <DescriptionList tasks={this.props.tasks} />
+        <DescriptionList descriptions={this.props.descriptions} />
       </div>
     );
   }

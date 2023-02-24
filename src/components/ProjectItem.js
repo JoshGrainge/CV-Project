@@ -18,7 +18,7 @@ class ProjectItem extends Component {
             {this.props.start} - {this.props.end}
           </p>
         </div>
-        <DescriptionList tasks={this.props.tasks} />
+        <DescriptionList descriptions={this.props.descriptions} />
       </div>
     );
   }
