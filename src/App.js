@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import SectionHeader from "./components/SectionHeader";
+import DescriptionList from "./components/DescriptionList";
 
 class App extends Component {
   constructor(props) {
@@ -41,11 +42,9 @@ class App extends Component {
               <p>Company</p>
               <p>Location</p>
             </div>
-            <ul>
-              <li>Description</li>
-              <li>Description</li>
-              <li>Description</li>
-            </ul>
+            <DescriptionList
+              tasks={["Description", "Description", "Description"]}
+            />
           </div>
 
           <SectionHeader name="Projects" />
@@ -54,11 +53,9 @@ class App extends Component {
               <p>Title | JavaScript CSS HTML</p>
               <p>Start - End</p>
             </div>
-            <ul>
-              <li>Description</li>
-              <li>Description</li>
-              <li>Description</li>
-            </ul>
+            <DescriptionList
+              tasks={["Description", "Description", "Description"]}
+            />
           </div>
 
           <SectionHeader name="Technical Skills" />
