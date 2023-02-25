@@ -6,6 +6,7 @@ import EducationInfo from "./EducationInfo";
 import ExperienceInfo from "./ExperienceInfo";
 import ProjectInfo from "./ProjectInfo";
 import TechnicalSkillInfo from "./TechnicalSkillInfo";
+import HeaderInputs from "./components/HeaderInputs";
 
 class App extends Component {
   constructor(props) {
@@ -100,19 +101,7 @@ class App extends Component {
     return (
       <div className="main-container">
         <div id="input-section">
-          <div id="header-inputs" className="section-inputs">
-            <h3>Personal Info:</h3>
-            <div className="inputs-container">
-              <label>Name:</label>
-              <input type={"text"}></input>
-              <label>Address:</label>
-              <input type={"text"}></input>
-              <label>Phone:</label>
-              <input type={"text"}></input>
-              <label>Email:</label>
-              <input type={"text"}></input>
-            </div>
-          </div>
+          <HeaderInputs />
           <div id="education-inputs" className="section-inputs">
             <h3>Education:</h3>
             <div className="inputs-container">
