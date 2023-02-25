@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class SectionHeader extends Component {
+class ResumeSectionHeader extends Component {
   constructor(props) {
     super(props);
     this.props = props;
@@ -16,4 +16,4 @@ class SectionHeader extends Component {
   }
 }
 
-export default SectionHeader;
+export default ResumeSectionHeader;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class ProjectItem extends Component {
+class ResumeTechnicalSkill extends Component {
   constructor(props) {
     super(props);
     this.props = props;
@@ -16,4 +16,4 @@ class ProjectItem extends Component {
   }
 }
 
-export default ProjectItem;
+export default ResumeTechnicalSkill;

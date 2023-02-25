@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Header from "./Header";
-import SectionHeader from "./SectionHeader";
-import EducationItem from "./EducationItem";
-import ExperienceItem from "./ExperienceItem";
-import ProjectItem from "./ProjectItem";
-import TechnicalSkill from "./TechnicalSkill";
+import ResumeHeader from "./ResumeHeader";
+import ResumeSectionHeader from "./ResumeSectionHeader";
+import ResumeEducationItem from "./ResumeEducationItem";
+import ResumeExperienceItem from "./ResumeExperienceItem";
+import ResumeProjectItem from "./ResumeProjectItem";
+import ResumeTechnicalSkill from "./ResumeTechnicalSkill";
 
 class Resume extends Component {
   constructor(props) {
@@ -15,35 +15,37 @@ class Resume extends Component {
   render() {
     return (
       <div className="resume-container">
-        <Header info={this.props.headerInfo} />
+        <ResumeHeader info={this.props.headerInfo} />
 
         <div className="resume-body">
-          <SectionHeader name="Education" />
+          <ResumeSectionHeader name="Education" />
           <div className="text-section">
             {this.props.educationInfos.map((educationInfo, i) => {
-              return <EducationItem key={i} info={educationInfo} />;
+              return <ResumeEducationItem key={i} info={educationInfo} />;
             })}
           </div>
 
-          <SectionHeader name="Experience" />
+          <ResumeSectionHeader name="Experience" />
           <div className="text-section">
             {this.props.experienceInfos.map((experienceInfo, i) => {
-              return <ExperienceItem key={i} info={experienceInfo} />;
+              return <ResumeExperienceItem key={i} info={experienceInfo} />;
             })}
           </div>
 
-          <SectionHeader name="Projects" />
+          <ResumeSectionHeader name="Projects" />
           <div className="text-section">
             {this.props.projectInfos.map((projectInfo, i) => {
-              return <ProjectItem key={i} info={projectInfo} />;
+              return <ResumeProjectItem key={i} info={projectInfo} />;
             })}
           </div>
 
-          <SectionHeader name="Technical Skills" />
+          <ResumeSectionHeader name="Technical Skills" />
           <div className="text-section">
             <div className="skills-text">
               {this.props.technicalSkillInfos.map((technicalSkillInfo, i) => {
-                return <TechnicalSkill key={i} info={technicalSkillInfo} />;
+                return (
+                  <ResumeTechnicalSkill key={i} info={technicalSkillInfo} />
+                );
               })}
             </div>
           </div>

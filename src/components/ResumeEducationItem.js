@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class EducationItem extends Component {
+class ResumeEducationItem extends Component {
   constructor(props) {
     super(props);
     this.props = props;
@@ -30,4 +30,4 @@ class EducationItem extends Component {
   }
 }
 
-export default EducationItem;
+export default ResumeEducationItem;
