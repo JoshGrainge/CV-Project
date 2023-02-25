@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import EducationInputItem from "./EducationInputItem";
 
 class EducationInputs extends Component {
   constructor(props) {
@@ -10,17 +11,8 @@ class EducationInputs extends Component {
     return (
       <div id="education-inputs" className="section-inputs">
         <h3>Education:</h3>
-        <div className="inputs-container">
-          <label>College Name:</label>
-          <input type={"text"}></input>
-          <label>College Location:</label>
-          <input type={"text"}></input>
-          <label>Diploma:</label>
-          <input type={"text"}></input>
-          <label>Start Date:</label>
-          <input type={"text"}></input>
-          <label>End Date:</label>
-          <input type={"text"}></input>
+        <div>
+          <EducationInputItem />
         </div>
         <div className="add-remove-container">
           <button>Add</button>

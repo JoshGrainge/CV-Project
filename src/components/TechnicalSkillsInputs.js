@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import TechnicalSkillsInputItem from "./TechnicalSkillsInputItem";
 
-class ProjectsInputs extends Component {
+class TechnicalSkillsInputs extends Component {
   constructor(props) {
     super(props);
     this.props = props;
@@ -10,11 +11,8 @@ class ProjectsInputs extends Component {
     return (
       <div id="technical-skills-inputs" className="section-inputs">
         <h3>Technical Skills:</h3>
-        <div className="inputs-container">
-          <label>Title:</label>
-          <input type={"text"}></input>
-          <label>Text:</label>
-          <input type={"text"}></input>
+        <div>
+          <TechnicalSkillsInputItem />
         </div>
         <div className="add-remove-container">
           <button>Add</button>
@@ -25,4 +23,4 @@ class ProjectsInputs extends Component {
   }
 }
 
-export default ProjectsInputs;
+export default TechnicalSkillsInputs;
