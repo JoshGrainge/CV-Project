@@ -100,8 +100,8 @@ class App extends Component {
     return (
       <div className="main-container">
         <div id="input-section">
-          <h3>Personal Info:</h3>
           <div id="header-inputs" className="section-inputs">
+            <h3>Personal Info:</h3>
             <div className="inputs-container">
               <label>Name:</label>
               <input type={"text"}></input>
