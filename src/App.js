@@ -98,13 +98,114 @@ class App extends Component {
     //#endregion
 
     return (
-      <Resume
-        headerInfo={headerInfo}
-        educationInfos={educationInfos}
-        experienceInfos={experienceInfos}
-        projectInfos={projectInfos}
-        technicalSkillInfos={technicalSkillInfos}
-      />
+      <div className="main-container">
+        <div id="input-section">
+          <h3>Personal Info:</h3>
+          <div id="header-inputs" className="section-inputs">
+            <div className="inputs-container">
+              <label>Name:</label>
+              <input type={"text"}></input>
+              <label>Address:</label>
+              <input type={"text"}></input>
+              <label>Phone:</label>
+              <input type={"text"}></input>
+              <label>Email:</label>
+              <input type={"text"}></input>
+            </div>
+          </div>
+          <div id="education-inputs" className="section-inputs">
+            <h3>Education:</h3>
+            <div className="inputs-container">
+              <label>College Name:</label>
+              <input type={"text"}></input>
+              <label>College Location:</label>
+              <input type={"text"}></input>
+              <label>Diploma:</label>
+              <input type={"text"}></input>
+              <label>Start Date:</label>
+              <input type={"text"}></input>
+              <label>End Date:</label>
+              <input type={"text"}></input>
+            </div>
+            <div className="add-remove-container">
+              <button>Add</button>
+              <button>Remove</button>
+            </div>
+          </div>
+          <div id="experience-inputs" className="section-inputs">
+            <h3>Experience:</h3>
+            <div className="inputs-container">
+              <label>Title:</label>
+              <input type={"text"}></input>
+              <label>Start:</label>
+              <input type={"text"}></input>
+              <label>End:</label>
+              <input type={"text"}></input>
+              <label>Company:</label>
+              <input type={"text"}></input>
+              <label>Location:</label>
+              <input type={"text"}></input>
+              <div>
+                <label>Descriptions:</label>
+                <button className="circle-button">+</button>
+                <div className="description-container">
+                  <input type={"text"}></input>
+                  <button className="circle-button">x</button>
+                </div>
+              </div>
+            </div>
+            <div className="add-remove-container">
+              <button>Add</button>
+              <button>Remove</button>
+            </div>
+          </div>
+          <div id="project-inputs" className="section-inputs">
+            <h3>Projects:</h3>
+            <div className="inputs-container">
+              <label>Title:</label>
+              <input type={"text"}></input>
+              <label>Tools:</label>
+              <input type={"text"}></input>
+              <label>Start:</label>
+              <input type={"text"}></input>
+              <label>End:</label>
+              <input type={"text"}></input>
+              <div>
+                <label>Descriptions:</label>
+                <button className="circle-button">+</button>
+                <div className="description-container">
+                  <input type={"text"}></input>
+                  <button className="circle-button">x</button>
+                </div>
+              </div>
+            </div>
+            <div className="add-remove-container">
+              <button>Add</button>
+              <button>Remove</button>
+            </div>
+          </div>
+          <div id="technical-skills-inputs" className="section-inputs">
+            <h3>Technical Skills:</h3>
+            <div className="inputs-container">
+              <label>Title:</label>
+              <input type={"text"}></input>
+              <label>Text:</label>
+              <input type={"text"}></input>
+            </div>
+            <div className="add-remove-container">
+              <button>Add</button>
+              <button>Remove</button>
+            </div>
+          </div>
+        </div>
+        <Resume
+          headerInfo={headerInfo}
+          educationInfos={educationInfos}
+          experienceInfos={experienceInfos}
+          projectInfos={projectInfos}
+          technicalSkillInfos={technicalSkillInfos}
+        />
+      </div>
     );
   }
 }
