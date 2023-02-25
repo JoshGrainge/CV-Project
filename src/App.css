@@ -6,14 +6,57 @@
 
   box-sizing: border-box;
 
-  font-family: "Times New Roman", Times, serif;
+  --light-blue: #144c8c;
+  --pale-blue: #8ab9ee;
+  --dark-blue: #1f3c58;
+  --gray-blue: #627d9f;
+  --dark-gray: #1c242c;
+}
+
+button {
+  background-color: #ffffff00;
+  border: 3px solid var(--dark-blue);
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #e5e5e5;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: var(--pale-blue);
+}
+
+.circle-button {
+  background-color: red;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  border: 2px solid black;
+}
+
+input {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .resume-container {
-  width: 210mm;
-  height: 297mm;
+  background-color: white;
+  min-width: 210mm;
+  min-height: 297mm;
+  max-width: 210mm;
+  max-height: 297mm;
 
   padding: 10px;
+
+  border: 1px solid black;
 }
 
 .header {
@@ -68,4 +111,37 @@ hr {
 h2 {
   font-weight: lighter;
   margin-top: 15px;
+}
+
+#input-section {
+  flex-grow: 1;
+  max-width: 30%;
+  padding: 10px;
+
+  border: 5px solid var(--light-blue);
+  border-radius: 20px;
+}
+
+.section-inputs {
+  margin-bottom: 15px;
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.description-container {
+  display: flex;
+  gap: 10px;
+}
+
+.description-container > input {
+  flex-grow: 1;
+}
+
+.add-remove-container > button {
+  width: 100px;
+  height: 30px;
+  margin: 5px;
 }
