@@ -6,11 +6,11 @@ class EducationInputItem extends Component {
     super(props);
 
     this.state = {
-      name: undefined,
-      location: undefined,
-      diploma: undefined,
-      start: undefined,
-      end: undefined,
+      name: this.props.info.name,
+      location: this.props.info.location,
+      diploma: this.props.info.diploma,
+      start: this.props.info.start,
+      end: this.props.info.end,
     };
 
     this.handleClick = this.handleClick.bind(this);
