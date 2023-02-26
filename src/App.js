@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import Resume from "./components/Resume";
-import HeaderInfo from "./HeaderInfo";
 import EducationInfo from "./EducationInfo";
 import ExperienceInfo from "./ExperienceInfo";
 import ProjectInfo from "./ProjectInfo";
@@ -16,17 +15,27 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.props = props;
+
+    this.state = {
+      headerInfo: {},
+      educationInfos: [],
+      experienceInfos: [],
+      projectsInfos: [],
+      technicalSkillsInfos: [],
+    };
+
+    this.updateHeaderInfo = this.updateHeaderInfo.bind(this);
+  }
+
+  updateHeaderInfo(newHeaderInfo) {
+    this.setState({
+      headerInfo: newHeaderInfo,
+    });
   }
 
   render() {
     //#region Testing variables
     // These variable are just for testing
-    const headerInfo = HeaderInfo(
-      "Josh Grainge",
-      "Canada, ON",
-      "555-5555",
-      "Email@email.com"
-    );
 
     const educationInfos = [
       EducationInfo(
@@ -105,14 +114,15 @@ class App extends Component {
     return (
       <div className="main-container">
         <div id="input-section">
-          <HeaderInputs />
+          <HeaderInputs onChange={this.updateHeaderInfo} />
           <EducationInputs />
           <ExperienceInputs />
           <ProjectsInputs />
           <TechnicalSkillsInputs />
         </div>
+        {/* TODO use this.state.headerInfo once functionality has been added */}
         <Resume
-          headerInfo={headerInfo}
+          headerInfo={this.state.headerInfo}
           educationInfos={educationInfos}
           experienceInfos={experienceInfos}
           projectInfos={projectInfos}
