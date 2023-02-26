@@ -140,7 +140,7 @@ h2 {
   flex-grow: 1;
 }
 
-.add-remove-container > button {
+.mid-length-button {
   width: 100px;
   height: 30px;
   margin: 5px;
