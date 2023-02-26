@@ -41,7 +41,7 @@ class EducationInputs extends Component {
   }
 
   onChange(index, newEducationInfo) {
-    const newEducationInputs = this.state.educationInputs;
+    const newEducationInputs = [...this.state.educationInputs];
     newEducationInputs[index] = newEducationInfo;
 
     this.setState(
