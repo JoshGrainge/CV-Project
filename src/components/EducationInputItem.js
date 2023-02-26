@@ -40,6 +40,13 @@ class EducationInputItem extends Component {
   }
 
   handleClick() {
+    this.setState({
+      name: undefined,
+      location: undefined,
+      diploma: undefined,
+      start: undefined,
+      end: undefined,
+    });
     this.props.deleteInput(this.props.index);
   }
 
