@@ -15,20 +15,6 @@ class EducationInputs extends Component {
           "September 2020",
           "April 2022"
         ),
-        EducationInfo(
-          "Cambrian 2",
-          "Sudbury 2",
-          "Associates 2",
-          "September 2020 2",
-          "April 2022 2"
-        ),
-        EducationInfo(
-          "Cambrian 3",
-          "Sudbury 3",
-          "Associates 3",
-          "September 2020 3",
-          "April 2022 3"
-        ),
       ],
     };
 

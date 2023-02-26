@@ -130,7 +130,7 @@ class App extends Component {
         {/* TODO use this.state.headerInfo once functionality has been added */}
         <Resume
           headerInfo={this.state.headerInfo}
-          educationInfos={educationInfos}
+          educationInfos={this.state.educationInfos}
           experienceInfos={experienceInfos}
           projectInfos={projectInfos}
           technicalSkillInfos={technicalSkillInfos}
