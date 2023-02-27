@@ -27,6 +27,7 @@ class App extends Component {
     this.updateHeaderInfo = this.updateHeaderInfo.bind(this);
     this.updateEducationInfos = this.updateEducationInfos.bind(this);
     this.updateExperienceInfos = this.updateExperienceInfos.bind(this);
+    this.updateProjectInfos = this.updateProjectInfos.bind(this);
   }
 
   updateHeaderInfo(newHeaderInfo) {
@@ -44,6 +45,12 @@ class App extends Component {
   updateExperienceInfos(newExperienceInfos) {
     this.setState({
       experienceInfos: newExperienceInfos,
+    });
+  }
+
+  updateProjectInfos(newProjectInfos) {
+    this.setState({
+      projectsInfos: newProjectInfos,
     });
   }
 
@@ -131,7 +138,7 @@ class App extends Component {
           <HeaderInputs onChange={this.updateHeaderInfo} />
           <EducationInputs onChange={this.updateEducationInfos} />
           <ExperienceInputs onChange={this.updateExperienceInfos} />
-          <ProjectsInputs />
+          <ProjectsInputs onChange={this.updateProjectInfos} />
           <TechnicalSkillsInputs />
         </div>
         {/* TODO use this.state.headerInfo once functionality has been added */}
@@ -139,7 +146,7 @@ class App extends Component {
           headerInfo={this.state.headerInfo}
           educationInfos={this.state.educationInfos}
           experienceInfos={this.state.experienceInfos}
-          projectInfos={projectInfos}
+          projectInfos={this.state.projectsInfos}
           technicalSkillInfos={technicalSkillInfos}
         />
       </div>
