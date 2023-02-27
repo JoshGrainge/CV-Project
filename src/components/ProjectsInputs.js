@@ -10,25 +10,14 @@ class ProjectsInputs extends Component {
     this.state = {
       projectInfos: [
         ProjectInfo(
-          "Thief Game",
-          "Unity, C#, Git, Visual Studio 2019",
-          "May 2019",
-          "Ongoing",
+          "Project Name",
+          "Tools used on project (Sepereated w/ commas for styling)",
+          "Start Date",
+          "End Date",
           [
-            "Created FSM AI system",
-            "Created custom player controller",
-            "Created branch dialogue system",
-          ]
-        ),
-        ProjectInfo(
-          "Out of Control",
-          "Unity, C#, Git, Visual Studio 2020",
-          "May 2019",
-          "May 2019",
-          [
-            "Created player controller",
-            "Collaborated with team members to create project",
-            "Used communication apps like Slack, Discord, and Zoom to collaborate",
+            "Project description point 1",
+            "Project description point 2",
+            "Project description point 3",
           ]
         ),
       ],

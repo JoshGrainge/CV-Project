@@ -9,11 +9,11 @@ class EducationInputs extends Component {
     this.state = {
       educationInputs: [
         EducationInfo(
-          "Cambrian",
-          "Sudbury",
-          "Associates",
-          "September 2020",
-          "April 2022"
+          "College Name",
+          "College Location",
+          "Degree Name",
+          "Start Date",
+          "End Date"
         ),
       ],
     };

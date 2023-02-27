@@ -10,27 +10,15 @@ class ExperienceInputs extends Component {
     this.state = {
       experienceInfos: [
         ExperienceInfo(
-          "Junior Web Developer",
-          "Sept. 2019",
-          "Dec. 2022",
-          "Meta",
-          "California, USA",
+          "Job title",
+          "Start Date",
+          "End Data",
+          "Company Name",
+          "Company Location",
           [
-            "Created big time",
-            "Made the Oculus Quest 2 with my bare hands",
-            "Day to day tom foolery",
-          ]
-        ),
-        ExperienceInfo(
-          "Senior Web Developer",
-          "Jan. 2023",
-          "Ongoing",
-          "Google",
-          "California, USA",
-          [
-            "Worked on Google Drive team on launch",
-            "Created the user interface for Google Sheets",
-            "Project manager for Google Sheets UI team",
+            "Job description point 1",
+            "Job description point 2",
+            "Job description point 3",
           ]
         ),
       ],

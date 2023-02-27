@@ -10,11 +10,9 @@ class TechnicalSkillsInputs extends Component {
     this.state = {
       technicalSkillsInfos: [
         TechnicalSkillInfo(
-          "Languages",
-          "JavaScript, CSS, HTML, C#, Python, MySQL"
+          "Technical Skill Title",
+          "Sub text (Seperated by commas for styling)"
         ),
-        TechnicalSkillInfo("Frameworks", "React"),
-        TechnicalSkillInfo("Tools", "Git, Visual Studio, ItelliJ, Github"),
       ],
     };
 
