@@ -131,6 +131,10 @@ h2 {
   flex-direction: column;
 }
 
+.full-width {
+  width: 100%;
+}
+
 .description-container {
   display: flex;
   gap: 10px;

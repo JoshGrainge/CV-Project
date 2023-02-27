@@ -67,7 +67,7 @@ class DescriptionInputs extends Component {
 
   render() {
     return (
-      <div>
+      <div className="full-width">
         {this.state.descriptions.map((description, i) => {
           return (
             <DescriptionInputItem

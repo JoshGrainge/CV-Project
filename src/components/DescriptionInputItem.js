@@ -34,7 +34,7 @@ class DescriptionInputItem extends Component {
 
   render() {
     return (
-      <div>
+      <div className="description-container">
         <input
           type={"text"}
           id="descriptions"
