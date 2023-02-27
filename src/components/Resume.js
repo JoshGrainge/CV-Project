@@ -13,33 +13,61 @@ class Resume extends Component {
   }
 
   render() {
+    let educationHeader =
+      this.props.educationInfos.length > 0 ? (
+        <ResumeSectionHeader name="Education" />
+      ) : (
+        ""
+      );
+
+    let experienceHeader =
+      this.props.experienceInfos.length > 0 ? (
+        <ResumeSectionHeader name="Experience" />
+      ) : (
+        ""
+      );
+
+    let projectsHeader =
+      this.props.projectInfos.length > 0 ? (
+        <ResumeSectionHeader name="Projects" />
+      ) : (
+        ""
+      );
+
+    let technicalSkillsHeader =
+      this.props.technicalSkillInfos.length > 0 ? (
+        <ResumeSectionHeader name="Technical Skills" />
+      ) : (
+        ""
+      );
+
     return (
       <div className="resume-container">
         <ResumeHeader info={this.props.headerInfo} />
 
         <div className="resume-body">
-          <ResumeSectionHeader name="Education" />
+          {educationHeader}
           <div className="text-section">
             {this.props.educationInfos.map((educationInfo, i) => {
               return <ResumeEducationItem key={i} info={educationInfo} />;
             })}
           </div>
 
-          <ResumeSectionHeader name="Experience" />
+          {experienceHeader}
           <div className="text-section">
             {this.props.experienceInfos.map((experienceInfo, i) => {
               return <ResumeExperienceItem key={i} info={experienceInfo} />;
             })}
           </div>
 
-          <ResumeSectionHeader name="Projects" />
+          {projectsHeader}
           <div className="text-section">
             {this.props.projectInfos.map((projectInfo, i) => {
               return <ResumeProjectItem key={i} info={projectInfo} />;
             })}
           </div>
 
-          <ResumeSectionHeader name="Technical Skills" />
+          {technicalSkillsHeader}
           <div className="text-section">
             <div className="skills-text">
               {this.props.technicalSkillInfos.map((technicalSkillInfo, i) => {
