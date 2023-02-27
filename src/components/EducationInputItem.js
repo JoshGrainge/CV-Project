@@ -89,7 +89,7 @@ class EducationInputItem extends Component {
           onChange={this.onChange}
         />
         <button className="mid-length-button" onClick={this.handleClick}>
-          Remove {this.props.index}
+          Remove
         </button>
       </div>
     );
