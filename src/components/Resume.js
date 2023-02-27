@@ -42,7 +42,7 @@ class Resume extends Component {
       );
 
     return (
-      <div className="resume-container">
+      <div id="resume-container">
         <ResumeHeader info={this.props.headerInfo} />
 
         <div className="resume-body">

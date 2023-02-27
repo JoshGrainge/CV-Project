@@ -68,7 +68,7 @@ input {
   justify-content: space-evenly;
 }
 
-.resume-container {
+#resume-container {
   background-color: white;
   min-width: 210mm;
   min-height: 297mm;
@@ -78,6 +78,10 @@ input {
   padding: 10px;
 
   border: 1px solid black;
+}
+
+#resume-container.no-border {
+  border: none;
 }
 
 .header {
@@ -172,4 +176,13 @@ h2 {
   width: 100px;
   height: 30px;
   margin: 5px;
+}
+
+.large-button {
+  width: 100%;
+  height: 50px;
+}
+
+.remove {
+  display: none;
 }

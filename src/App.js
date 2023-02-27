@@ -25,6 +25,7 @@ class App extends Component {
     this.updateExperienceInfos = this.updateExperienceInfos.bind(this);
     this.updateProjectInfos = this.updateProjectInfos.bind(this);
     this.updateTechnicalSkillInfos = this.updateTechnicalSkillInfos.bind(this);
+    this.print = this.print.bind(this);
   }
 
   updateHeaderInfo(newHeaderInfo) {
@@ -57,6 +58,17 @@ class App extends Component {
     });
   }
 
+  print() {
+    let inputSection = document.getElementById("input-section");
+    let resumeSection = document.getElementById("resume-container");
+
+    inputSection.className = "remove";
+    resumeSection.className = "no-border";
+    window.print();
+    inputSection.className = "";
+    resumeSection.className = "";
+  }
+
   render() {
     return (
       <div className="main-container">
@@ -66,6 +78,9 @@ class App extends Component {
           <ExperienceInputs onChange={this.updateExperienceInfos} />
           <ProjectsInputs onChange={this.updateProjectInfos} />
           <TechnicalSkillsInputs onChange={this.updateTechnicalSkillInfos} />
+          <button onClick={this.print} className="large-button">
+            Print
+          </button>
         </div>
         <Resume
           headerInfo={this.state.headerInfo}
