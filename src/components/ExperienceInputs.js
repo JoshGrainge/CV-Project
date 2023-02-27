@@ -57,15 +57,13 @@ class ExperienceInputs extends Component {
   }
 
   deleteInput(index) {
-    console.log(index);
-
-    const newEducationInputs = this.state.experienceInfos.filter((_, i) => {
+    const newExperienceInfo = this.state.experienceInfos.filter((_, i) => {
       return index !== i;
     });
 
     this.setState(
       {
-        experienceInfos: newEducationInputs,
+        experienceInfos: newExperienceInfo,
       },
       this.submitChanges
     );

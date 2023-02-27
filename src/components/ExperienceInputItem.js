@@ -45,12 +45,12 @@ class ExperienceInputItem extends Component {
 
   handleClick() {
     this.setState({
-      title: undefined,
-      start: undefined,
-      end: undefined,
-      company: undefined,
-      location: undefined,
-      descriptions: undefined,
+      title: "",
+      start: "",
+      end: "",
+      company: "",
+      location: "",
+      descriptions: [],
     });
     this.props.deleteInput(this.props.index);
   }
