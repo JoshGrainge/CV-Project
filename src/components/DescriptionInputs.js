@@ -75,7 +75,7 @@ class DescriptionInputs extends Component {
             />
           );
         })}
-        <button className="circle-button" onClick={this.addInput}>
+        <button className="circle-button green-button" onClick={this.addInput}>
           +
         </button>
       </div>
