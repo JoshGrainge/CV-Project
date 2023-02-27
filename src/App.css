@@ -122,10 +122,13 @@ ul > li,
   margin-bottom: 5px;
 }
 
+/* Workaround for hr being removed when printing */
 hr {
-  height: 1px;
-  border: 0;
-  background-color: black;
+  display: block;
+  background: transparent;
+  width: 100%;
+  border: none;
+  border-top: solid 1px black;
 }
 
 h2 {
