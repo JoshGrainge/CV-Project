@@ -95,7 +95,6 @@ class ExperienceInputItem extends Component {
         />
         <div>
           <label>Descriptions:</label>
-          <button className="circle-button">+</button>
           <div className="description-container">
             <DescriptionInputs
               id="descriptions"

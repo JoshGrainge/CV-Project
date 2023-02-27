@@ -12,6 +12,7 @@ class DescriptionInputs extends Component {
     };
 
     this.onChange = this.onChange.bind(this);
+    this.addInput = this.addInput.bind(this);
     this.submitChanges = this.submitChanges.bind(this);
   }
 
@@ -22,6 +23,17 @@ class DescriptionInputs extends Component {
     this.setState(
       {
         descriptions: newDescriptionInputs,
+      },
+      this.submitChanges
+    );
+  }
+
+  addInput() {
+    const newDescriptions = [...this.state.descriptions, ""];
+
+    this.setState(
+      {
+        descriptions: newDescriptions,
       },
       this.submitChanges
     );
@@ -50,7 +62,9 @@ class DescriptionInputs extends Component {
             />
           );
         })}
-        <button className="circle-button">+</button>
+        <button className="circle-button" onClick={this.addInput}>
+          +
+        </button>
       </div>
     );
   }
