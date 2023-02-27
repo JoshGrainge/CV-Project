@@ -21,7 +21,6 @@ class ExperienceInputItem extends Component {
   }
 
   onChange(e) {
-    console.log("Experience Input Item e: " + JSON.stringify(e));
     this.setState(
       {
         [e.target.id]: e.target.value,
