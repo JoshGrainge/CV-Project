@@ -13,6 +13,7 @@ class DescriptionInputs extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.addInput = this.addInput.bind(this);
+    this.deleteInput = this.deleteInput.bind(this);
     this.submitChanges = this.submitChanges.bind(this);
   }
 
@@ -30,6 +31,21 @@ class DescriptionInputs extends Component {
 
   addInput() {
     const newDescriptions = [...this.state.descriptions, ""];
+
+    this.setState(
+      {
+        descriptions: newDescriptions,
+      },
+      this.submitChanges
+    );
+  }
+
+  deleteInput(index) {
+    console.log(index);
+
+    const newDescriptions = this.state.descriptions.filter((_, i) => {
+      return index !== i;
+    });
 
     this.setState(
       {
@@ -58,6 +74,7 @@ class DescriptionInputs extends Component {
               key={i}
               index={i}
               description={description}
+              deleteInput={this.deleteInput}
               onChange={this.onChange}
             />
           );

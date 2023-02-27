@@ -9,6 +9,7 @@ class DescriptionInputItem extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.submitChange = this.submitChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   onChange(e) {
@@ -24,6 +25,13 @@ class DescriptionInputItem extends Component {
     this.props.onChange(this.props.index, this.state.description);
   }
 
+  handleClick() {
+    this.setState({
+      description: undefined,
+    });
+    this.props.deleteInput(this.props.index);
+  }
+
   render() {
     return (
       <div>
@@ -32,8 +40,10 @@ class DescriptionInputItem extends Component {
           id="descriptions"
           value={this.props.description}
           onChange={this.onChange}
-        ></input>
-        <button className="circle-button">x</button>
+        />
+        <button className="circle-button" onClick={this.handleClick}>
+          x
+        </button>
       </div>
     );
   }
