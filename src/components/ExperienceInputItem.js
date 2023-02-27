@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ExperienceInfo from "../ExperienceInfo";
+import DescriptionInputs from "./DescriptionInputs";
 
 class ExperienceInputItem extends Component {
   constructor(props) {
@@ -16,9 +17,11 @@ class ExperienceInputItem extends Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.submitChange = this.submitChange.bind(this);
   }
 
   onChange(e) {
+    console.log("Experience Input Item e: " + JSON.stringify(e));
     this.setState(
       {
         [e.target.id]: e.target.value,
@@ -95,13 +98,11 @@ class ExperienceInputItem extends Component {
           <label>Descriptions:</label>
           <button className="circle-button">+</button>
           <div className="description-container">
-            <input
-              type={"text"}
+            <DescriptionInputs
               id="descriptions"
-              value={this.props.info.descriptions}
+              descriptions={this.props.info.descriptions}
               onChange={this.onChange}
-            ></input>
-            <button className="circle-button">x</button>
+            />
           </div>
         </div>
         <button className="mid-length-button" onClick={this.handleClick}>

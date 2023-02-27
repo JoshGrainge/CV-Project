@@ -74,7 +74,7 @@ class ExperienceInputs extends Component {
   addInput() {
     const newEducationInputs = [
       ...this.state.experienceInfos,
-      ExperienceInfo("", "", "", "", "", ""),
+      ExperienceInfo("", "", "", "", "", [""]),
     ];
 
     this.setState(
