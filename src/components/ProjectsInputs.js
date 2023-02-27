@@ -11,6 +11,7 @@ class ProjectsInputs extends Component {
       projectInfos: [
         ProjectInfo(
           "Project Name",
+          "Project Link",
           "Tools used on project (Sepereated w/ commas for styling)",
           "Start Date",
           "End Date",
@@ -58,7 +59,7 @@ class ProjectsInputs extends Component {
   addInput() {
     const newProjectInfos = [
       ...this.state.projectInfos,
-      ProjectInfo("", "", "", "", [""]),
+      ProjectInfo("", "", "", "", "", [""]),
     ];
 
     this.setState(

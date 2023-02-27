@@ -12,8 +12,10 @@ class ResumeProjectItem extends Component {
       <div>
         <div className="text-row">
           <p>
-            <span className="bold">{this.props.info.title}</span> |{" "}
-            <span className="sub">{this.props.info.tools}</span>
+            <span className="bold">
+              <a href={this.props.info.link}>{this.props.info.title}</a>
+            </span>{" "}
+            | <span className="sub">{this.props.info.tools}</span>
           </p>
           <p>
             {this.props.info.start} - {this.props.info.end}

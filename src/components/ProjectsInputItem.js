@@ -9,6 +9,7 @@ class ProjectsInputItem extends Component {
 
     this.state = {
       title: this.props.info.title,
+      link: this.props.info.link,
       tools: this.props.info.tools,
       start: this.props.info.start,
       end: this.props.info.end,
@@ -34,6 +35,7 @@ class ProjectsInputItem extends Component {
       this.props.index,
       ProjectInfo(
         this.state.title,
+        this.state.link,
         this.state.tools,
         this.state.start,
         this.state.end,
@@ -45,6 +47,7 @@ class ProjectsInputItem extends Component {
   handleClick() {
     this.setState({
       title: "",
+      link: "",
       tools: "",
       start: "",
       end: "",
@@ -61,6 +64,13 @@ class ProjectsInputItem extends Component {
           type={"text"}
           id="title"
           value={this.props.info.title}
+          onChange={this.onChange}
+        />
+        <label>Link to Project:</label>
+        <input
+          type={"text"}
+          id="link"
+          value={this.props.info.link}
           onChange={this.onChange}
         />
         <label>Tools:</label>
