@@ -62,35 +62,35 @@ class ExperienceInputItem extends Component {
           id="title"
           value={this.props.info.title}
           onChange={this.onChange}
-        ></input>
+        />
         <label>Start:</label>
         <input
           type={"text"}
           id="start"
           value={this.props.info.start}
           onChange={this.onChange}
-        ></input>
+        />
         <label>End:</label>
         <input
           type={"text"}
           id="end"
           value={this.props.info.end}
           onChange={this.onChange}
-        ></input>
+        />
         <label>Company:</label>
         <input
           type={"text"}
           id="company"
           value={this.props.info.company}
           onChange={this.onChange}
-        ></input>
+        />
         <label>Location:</label>
         <input
           type={"text"}
           id="location"
           value={this.props.info.location}
           onChange={this.onChange}
-        ></input>
+        />
         <div>
           <label>Descriptions:</label>
           <button className="circle-button">+</button>
