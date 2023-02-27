@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import Resume from "./components/Resume";
-import EducationInfo from "./EducationInfo";
-import ExperienceInfo from "./ExperienceInfo";
-import ProjectInfo from "./ProjectInfo";
-import TechnicalSkillInfo from "./TechnicalSkillInfo";
 import HeaderInputs from "./components/HeaderInputs";
 import EducationInputs from "./components/EducationInputs";
 import ExperienceInputs from "./components/ExperienceInputs";
@@ -21,13 +17,14 @@ class App extends Component {
       educationInfos: [],
       experienceInfos: [],
       projectsInfos: [],
-      technicalSkillsInfos: [],
+      technicalSkillInfos: [],
     };
 
     this.updateHeaderInfo = this.updateHeaderInfo.bind(this);
     this.updateEducationInfos = this.updateEducationInfos.bind(this);
     this.updateExperienceInfos = this.updateExperienceInfos.bind(this);
     this.updateProjectInfos = this.updateProjectInfos.bind(this);
+    this.updateTechnicalSkillInfos = this.updateTechnicalSkillInfos.bind(this);
   }
 
   updateHeaderInfo(newHeaderInfo) {
@@ -54,84 +51,13 @@ class App extends Component {
     });
   }
 
+  updateTechnicalSkillInfos(newTechnicalSkillsInfos) {
+    this.setState({
+      technicalSkillInfos: newTechnicalSkillsInfos,
+    });
+  }
+
   render() {
-    //#region Testing variables
-    // These variable are just for testing
-
-    const educationInfos = [
-      EducationInfo(
-        "Harvard",
-        "Boston, USA",
-        "Masters",
-        "Sept 2020",
-        "April 2024"
-      ),
-      EducationInfo("Yale", "Boston, USA", "PHD", "Sept 2025", "April 2029"),
-    ];
-
-    const experienceInfos = [
-      ExperienceInfo(
-        "Junior Web Developer",
-        "Sept. 2019",
-        "Dec. 2022",
-        "Meta",
-        "California, USA",
-        [
-          "Created the metaverse alone",
-          "Made the Oculus Quest 2 with my bare hands",
-          "Day to day tom foolery",
-        ]
-      ),
-      ExperienceInfo(
-        "Senior Web Developer",
-        "Jan. 2023",
-        "Ongoing",
-        "Google",
-        "California, USA",
-        [
-          "Worked on Google Drive team on launch",
-          "Created the user interface for Google Sheets",
-          "Project manager for Google Sheets UI team",
-        ]
-      ),
-    ];
-
-    const projectInfos = [
-      ProjectInfo(
-        "Thief Game",
-        "Unity, C#, Git, Visual Studio 2019",
-        "May 2019",
-        "Ongoing",
-        [
-          "Created FSM AI system",
-          "Created custom player controller",
-          "Created branch dialogue system",
-        ]
-      ),
-      ProjectInfo(
-        "Out of Control",
-        "Unity, C#, Git, Visual Studio 2020",
-        "May 2019",
-        "May 2019",
-        [
-          "Created player controller",
-          "Collaborated with team members to create project",
-          "Used communication apps like Slack, Discord, and Zoom to collaborate",
-        ]
-      ),
-    ];
-
-    const technicalSkillInfos = [
-      TechnicalSkillInfo(
-        "Languages",
-        "JavaScript, CSS, HTML, C#, Python, MySQL"
-      ),
-      TechnicalSkillInfo("Frameworks", "React"),
-      TechnicalSkillInfo("Tools", "Git, Visual Studio, ItelliJ, Github"),
-    ];
-
-    //#endregion
-
     return (
       <div className="main-container">
         <div id="input-section">
@@ -139,15 +65,14 @@ class App extends Component {
           <EducationInputs onChange={this.updateEducationInfos} />
           <ExperienceInputs onChange={this.updateExperienceInfos} />
           <ProjectsInputs onChange={this.updateProjectInfos} />
-          <TechnicalSkillsInputs />
+          <TechnicalSkillsInputs onChange={this.updateTechnicalSkillInfos} />
         </div>
-        {/* TODO use this.state.headerInfo once functionality has been added */}
         <Resume
           headerInfo={this.state.headerInfo}
           educationInfos={this.state.educationInfos}
           experienceInfos={this.state.experienceInfos}
           projectInfos={this.state.projectsInfos}
-          technicalSkillInfos={technicalSkillInfos}
+          technicalSkillInfos={this.state.technicalSkillInfos}
         />
       </div>
     );

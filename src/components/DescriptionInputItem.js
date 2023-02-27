@@ -5,8 +5,6 @@ class DescriptionInputItem extends Component {
     super(props);
     this.props = props;
 
-    console.log("Item description: " + this.props.description);
-
     this.onChange = this.onChange.bind(this);
     this.submitChange = this.submitChange.bind(this);
     this.handleClick = this.handleClick.bind(this);

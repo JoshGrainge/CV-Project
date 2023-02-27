@@ -39,8 +39,6 @@ class EducationInputs extends Component {
   }
 
   deleteInput(index) {
-    console.log(index);
-
     const newEducationInputs = this.state.educationInputs.filter((_, i) => {
       return index !== i;
     });

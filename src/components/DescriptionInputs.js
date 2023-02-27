@@ -5,8 +5,6 @@ class DescriptionInputs extends Component {
   constructor(props) {
     super(props);
 
-    console.log("Description Inputs descriptions: " + this.props.descriptions);
-
     this.state = {
       descriptions: this.props.descriptions,
     };
@@ -41,8 +39,6 @@ class DescriptionInputs extends Component {
   }
 
   deleteInput(index) {
-    console.log(index);
-
     const newDescriptions = this.state.descriptions.filter((_, i) => {
       return index !== i;
     });
