@@ -26,6 +26,7 @@ class App extends Component {
 
     this.updateHeaderInfo = this.updateHeaderInfo.bind(this);
     this.updateEducationInfos = this.updateEducationInfos.bind(this);
+    this.updateExperienceInfos = this.updateExperienceInfos.bind(this);
   }
 
   updateHeaderInfo(newHeaderInfo) {
@@ -37,6 +38,12 @@ class App extends Component {
   updateEducationInfos(newEducationInfos) {
     this.setState({
       educationInfos: newEducationInfos,
+    });
+  }
+
+  updateExperienceInfos(newExperienceInfos) {
+    this.setState({
+      experienceInfos: newExperienceInfos,
     });
   }
 
@@ -123,7 +130,7 @@ class App extends Component {
         <div id="input-section">
           <HeaderInputs onChange={this.updateHeaderInfo} />
           <EducationInputs onChange={this.updateEducationInfos} />
-          <ExperienceInputs />
+          <ExperienceInputs onChange={this.updateExperienceInfos} />
           <ProjectsInputs />
           <TechnicalSkillsInputs />
         </div>
@@ -131,7 +138,7 @@ class App extends Component {
         <Resume
           headerInfo={this.state.headerInfo}
           educationInfos={this.state.educationInfos}
-          experienceInfos={experienceInfos}
+          experienceInfos={this.state.experienceInfos}
           projectInfos={projectInfos}
           technicalSkillInfos={technicalSkillInfos}
         />
