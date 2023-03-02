@@ -1,102 +1,67 @@
-import React, { Component } from "react";
+import React, { useState, useEffect, Component } from "react";
 import ProjectInfo from "../ProjectInfo";
 import ProjectsInputItem from "./ProjectsInputItem";
 
-class ProjectsInputs extends Component {
-  constructor(props) {
-    super(props);
-    this.props = props;
+let inputs = [];
 
-    this.state = {
-      projectInfos: [
-        ProjectInfo(
-          "Project Name",
-          "Project Link",
-          "Tools used on project (Sepereated w/ commas for styling)",
-          "Start Date",
-          "End Date",
-          [
-            "Project description point 1",
-            "Project description point 2",
-            "Project description point 3",
-          ]
-        ),
-      ],
-    };
-    this.deleteInput = this.deleteInput.bind(this);
-    this.onChange = this.onChange.bind(this);
-    this.addInput = this.addInput.bind(this);
-    this.submitChanges = this.submitChanges.bind(this);
+const defualtInputData = ProjectInfo(
+  "Project Title",
+  "Project Link",
+  "Tools",
+  "Start",
+  "End",
+  ["Project description point"]
+);
 
-    this.props.onChange(this.state.projectInfos);
-  }
+function ProjectsInputs(props) {
+  const [projectsInputs, setProjectsInputs] = useState([defualtInputData]);
 
-  onChange(index, newProjectInfo) {
-    const newProjectInfos = [...this.state.projectInfos];
-    newProjectInfos[index] = newProjectInfo;
+  useEffect(() => {
+    props.onChange(projectsInputs);
 
-    this.setState(
-      {
-        projectInfos: newProjectInfos,
-      },
-      this.submitChanges
-    );
-  }
+    // Reassign education inputs
+    inputs = [];
+    for (let i = 0; i < projectsInputs.length; i++) {
+      inputs.push(
+        <ProjectsInputItem
+          key={i}
+          index={i}
+          info={projectsInputs[i]}
+          deleteInput={removeInput}
+          onChange={changeInput}
+        />
+      );
+    }
+  }, [projectsInputs]);
 
-  deleteInput(index) {
-    const newProjectInfos = this.state.projectInfos.filter((_, i) => {
-      return index !== i;
-    });
+  const removeInput = (index) => {
+    setProjectsInputs([
+      ...projectsInputs.slice(0, index),
+      ...projectsInputs.slice(index + 1),
+    ]);
+  };
 
-    this.setState(
-      {
-        projectInfos: newProjectInfos,
-      },
-      this.submitChanges
-    );
-  }
+  const changeInput = (index, newInput) => {
+    setProjectsInputs([
+      ...projectsInputs.slice(0, index),
+      newInput,
+      ...projectsInputs.slice(index + 1),
+    ]);
+  };
 
-  addInput() {
-    const newProjectInfos = [
-      ...this.state.projectInfos,
-      ProjectInfo("", "", "", "", "", [""]),
-    ];
+  const addInput = () => {
+    setProjectsInputs([...projectsInputs, defualtInputData]);
+  };
 
-    this.setState(
-      {
-        projectInfos: newProjectInfos,
-      },
-      this.submitChanges
-    );
-  }
-
-  submitChanges() {
-    this.props.onChange(this.state.projectInfos);
-  }
-
-  render() {
-    return (
-      <div id="project-inputs" className="section-inputs">
-        <h3>Projects:</h3>
-        <div>
-          {this.state.projectInfos.map((projectInfo, i) => {
-            return (
-              <ProjectsInputItem
-                key={i}
-                index={i}
-                info={projectInfo}
-                deleteInput={this.deleteInput}
-                onChange={this.onChange}
-              />
-            );
-          })}
-        </div>
-        <button className="mid-length-button" onClick={this.addInput}>
-          Add
-        </button>
-      </div>
-    );
-  }
+  return (
+    <div id="project-inputs" className="section-inputs">
+      <h3>Projects:</h3>
+      <div>{inputs}</div>
+      <button className="mid-length-button" onClick={addInput}>
+        Add
+      </button>
+    </div>
+  );
 }
 
 export default ProjectsInputs;

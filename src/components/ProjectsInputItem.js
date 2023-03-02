@@ -1,115 +1,64 @@
-import React, { Component } from "react";
-import ProjectInfo from "../ProjectInfo";
+import React, { useState, useEffect } from "react";
 import DescriptionInputs from "./DescriptionInputs";
 
-class ProjectsInputItem extends Component {
-  constructor(props) {
-    super(props);
-    this.props = props;
+function ProjectsInputItem(props) {
+  const [title, setTitle] = useState(props.info.title);
+  const [link, setLink] = useState(props.info.link);
+  const [tools, setTools] = useState(props.info.tools);
+  const [start, setStart] = useState(props.info.start);
+  const [end, setEnd] = useState(props.info.end);
+  const [descriptions, setDescriptions] = useState(props.info.descriptions);
 
-    this.state = {
-      title: this.props.info.title,
-      link: this.props.info.link,
-      tools: this.props.info.tools,
-      start: this.props.info.start,
-      end: this.props.info.end,
-      descriptions: this.props.info.descriptions,
-    };
+  const remove = () => {
+    props.deleteInput(props.index);
+  };
 
-    this.handleClick = this.handleClick.bind(this);
-    this.onChange = this.onChange.bind(this);
-    this.submitChange = this.submitChange.bind(this);
-  }
-
-  onChange(e) {
-    this.setState(
-      {
-        [e.target.id]: e.target.value,
-      },
-      this.submitChange
-    );
-  }
-
-  submitChange() {
-    this.props.onChange(
-      this.props.index,
-      ProjectInfo(
-        this.state.title,
-        this.state.link,
-        this.state.tools,
-        this.state.start,
-        this.state.end,
-        this.state.descriptions
-      )
-    );
-  }
-
-  handleClick() {
-    this.setState({
-      title: "",
-      link: "",
-      tools: "",
-      start: "",
-      end: "",
-      descriptions: [],
+  useEffect(() => {
+    props.onChange(props.index, {
+      title: title,
+      link: link,
+      tools: tools,
+      start: start,
+      end: end,
+      descriptions: descriptions,
     });
-    this.props.deleteInput(this.props.index);
-  }
+  }, [title, link, tools, start, end, descriptions]);
 
-  render() {
-    return (
-      <div className="inputs-container">
-        <label>Title:</label>
-        <input
-          type={"text"}
-          id="title"
-          value={this.props.info.title}
-          onChange={this.onChange}
-        />
-        <label>Link to Project:</label>
-        <input
-          type={"text"}
-          id="link"
-          value={this.props.info.link}
-          onChange={this.onChange}
-        />
-        <label>Tools:</label>
-        <input
-          type={"text"}
-          id="tools"
-          value={this.props.info.tools}
-          onChange={this.onChange}
-        />
-        <label>Start:</label>
-        <input
-          type={"text"}
-          id="start"
-          value={this.props.info.start}
-          onChange={this.onChange}
-        />
-        <label>End:</label>
-        <input
-          type={"text"}
-          id="end"
-          value={this.props.info.end}
-          onChange={this.onChange}
-        />
-        <div>
-          <label>Descriptions:</label>
-          <div className="description-container">
-            <DescriptionInputs
-              id="descriptions"
-              descriptions={this.props.info.descriptions}
-              onChange={this.onChange}
-            />
-          </div>
+  useEffect(() => {
+    setTitle(props.info.title);
+    setLink(props.info.link);
+    setTools(props.info.tools);
+    setStart(props.info.start);
+    setEnd(props.info.end);
+    setDescriptions(props.info.descriptions);
+  }, [props.info]);
+
+  return (
+    <div className="inputs-container">
+      <label>Title:</label>
+      <input value={title} onChange={(e) => setTitle(e.target.value)} />
+      <label>Link to Project:</label>
+      <input value={link} onChange={(e) => setLink(e.target.value)} />
+      <label>Tools:</label>
+      <input value={tools} onChange={(e) => setTools(e.target.value)} />
+      <label>Start:</label>
+      <input value={start} onChange={(e) => setStart(e.target.value)} />
+      <label>End:</label>
+      <input value={end} onChange={(e) => setEnd(e.target.value)} />
+      <div>
+        <label>Descriptions:</label>
+        <div className="description-container">
+          <DescriptionInputs
+            descriptions={descriptions}
+            onChange={setDescriptions}
+          />
         </div>
-        <button className="mid-length-button" onClick={this.handleClick}>
-          Remove
-        </button>
       </div>
-    );
-  }
+      <button className="mid-length-button" onClick={remove}>
+        Remove
+      </button>
+    </div>
+  );
 }
 
 export default ProjectsInputItem;
