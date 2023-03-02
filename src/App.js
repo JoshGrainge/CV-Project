@@ -4,6 +4,8 @@ import Resume from "./components/Resume";
 import HeaderInputs from "./components/HeaderInputs";
 import EducationInputs from "./components/EducationInputs";
 import ExperienceInputs from "./components/ExperienceInputs";
+import ProjectsInputs from "./components/ProjectsInputs";
+import TechnicalSkillsInputs from "./components/TechnicalSkillsInputs";
 
 function App() {
   const [infos, setInfos] = useState({
@@ -35,17 +37,42 @@ function App() {
     });
   };
 
+  const updateProjectInfos = (newProjectInfos) => {
+    setInfos({
+      ...infos,
+      projectsInfos: newProjectInfos,
+    });
+  };
+
+  const updateTechnicalSkillInfos = (newTechnicalSkillInfos) => {
+    setInfos({
+      ...infos,
+      technicalSkillInfos: newTechnicalSkillInfos,
+    });
+  };
+
+  const print = () => {
+    let inputSection = document.getElementById("input-section");
+    let resumeSection = document.getElementById("input-section");
+
+    inputSection.className = "remove";
+    resumeSection.className = "no-border";
+    window.print();
+    inputSection.className = "";
+    resumeSection.className = "";
+  };
+
   return (
     <div className="main-container">
       <div id="input-section">
         <HeaderInputs onChange={updateHeaderInfo} />
         <EducationInputs onChange={updateEducationInfos} />
         <ExperienceInputs onChange={updateExperienceInfos} />
-        {/* <ProjectsInputs onChange={setProjectsInfos} />
-        <TechnicalSkillsInputs onChange={setTechnicalSkillInfos} /> */}
-        {/* <button onClick={this.print} className="large-button">
+        <ProjectsInputs onChange={updateProjectInfos} />
+        <TechnicalSkillsInputs onChange={updateTechnicalSkillInfos} />
+        <button onClick={print} className="large-button">
           Print
-        </button> */}
+        </button>
       </div>
       <Resume
         headerInfo={infos.headerInfo}
