@@ -7,7 +7,7 @@ let inputs = [];
 const defaultExperienceInput = ExperienceInfo(
   "Job title",
   "Start Date",
-  "End Data",
+  "End Date",
   "Company Name",
   "Company Location",
   ["Job description point"]
