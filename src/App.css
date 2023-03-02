@@ -11,6 +11,8 @@
   --dark-blue: #1f3c58;
   --gray-blue: #627d9f;
   --dark-gray: #1c242c;
+
+  font-family: "Old Standard TT", sans-serif;
 }
 
 button {
@@ -93,7 +95,7 @@ input {
 
 .sub {
   font-style: italic;
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 ul {

@@ -1,97 +1,75 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import EducationInputItem from "./EducationInputItem";
 import EducationInfo from "../EducationInfo";
 
-class EducationInputs extends Component {
-  constructor(props) {
-    super(props);
+let inputs = [];
 
-    this.state = {
-      educationInputs: [
-        EducationInfo(
-          "College Name",
-          "College Location",
-          "Degree Name",
-          "Start Date",
-          "End Date"
-        ),
-      ],
-    };
+function EducationInputs(props) {
+  const [educationInputs, setEducationInputs] = useState([
+    EducationInfo(
+      "College Name",
+      "College Location",
+      "Degree Name",
+      "Start Date",
+      "End Date"
+    ),
+  ]);
 
-    this.deleteInput = this.deleteInput.bind(this);
-    this.onChange = this.onChange.bind(this);
-    this.addInput = this.addInput.bind(this);
-    this.submitChanges = this.submitChanges.bind(this);
+  useEffect(() => {
+    props.onChange(educationInputs);
 
-    this.props.onChange(this.state.educationInputs);
-  }
+    // Reassign education inputs
+    inputs = [];
+    for (let i = 0; i < educationInputs.length; i++) {
+      inputs.push(
+        <EducationInputItem
+          info={educationInputs[i]}
+          key={i}
+          index={i}
+          deleteInput={removeInput}
+          onChange={changeInput}
+        />
+      );
+    }
+  }, [educationInputs]);
 
-  onChange(index, newEducationInfo) {
-    const newEducationInputs = [...this.state.educationInputs];
-    newEducationInputs[index] = newEducationInfo;
+  const removeInput = (index) => {
+    setEducationInputs([
+      ...educationInputs.slice(0, index),
+      ...educationInputs.slice(index + 1),
+    ]);
+  };
 
-    this.setState(
-      {
-        educationInputs: newEducationInputs,
-      },
-      this.submitChanges
-    );
-  }
+  const changeInput = (index, newInput) => {
+    setEducationInputs([
+      ...educationInputs.slice(0, index),
+      newInput,
+      ...educationInputs.slice(index + 1),
+    ]);
+  };
 
-  deleteInput(index) {
-    const newEducationInputs = this.state.educationInputs.filter((_, i) => {
-      return index !== i;
-    });
+  const addInput = () => {
+    setEducationInputs([
+      ...educationInputs,
+      EducationInfo(
+        "College Name",
+        "College Location",
+        "Degree Name",
+        "Start Date",
+        "End Date"
+      ),
+    ]);
+  };
 
-    this.setState(
-      {
-        educationInputs: newEducationInputs,
-      },
-      this.submitChanges
-    );
-  }
-
-  addInput() {
-    const newEducationInputs = [
-      ...this.state.educationInputs,
-      EducationInfo("", "", "", "", ""),
-    ];
-
-    this.setState(
-      {
-        educationInputs: newEducationInputs,
-      },
-      this.submitChanges
-    );
-  }
-
-  submitChanges() {
-    this.props.onChange(this.state.educationInputs);
-  }
-
-  render() {
-    return (
-      <div id="education-inputs" className="section-inputs">
-        <h3>Education:</h3>
-        <div>
-          {this.state.educationInputs.map((educationInput, i) => {
-            return (
-              <EducationInputItem
-                key={i}
-                index={i}
-                info={educationInput}
-                deleteInput={this.deleteInput}
-                onChange={this.onChange}
-              />
-            );
-          })}
-        </div>
-        <button className="mid-length-button" onClick={this.addInput}>
-          Add
-        </button>
-      </div>
-    );
-  }
+  return (
+    <div id="education-inputs" className="section-inputs">
+      <h3>Education:</h3>
+      <div>{inputs}</div>
+      <button className="mid-length-button" onClick={addInput}>
+        Add
+      </button>
+    </div>
+  );
 }
 
 export default EducationInputs;

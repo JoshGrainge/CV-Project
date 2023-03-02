@@ -1,99 +1,51 @@
-import React, { Component } from "react";
-import EducationInfo from "../EducationInfo";
+import React, { useState, useEffect } from "react";
 
-class EducationInputItem extends Component {
-  constructor(props) {
-    super(props);
+function EducationInputItem(props) {
+  const [name, setName] = useState(props.info.name);
+  const [location, setLocation] = useState(props.info.location);
+  const [diploma, setDiploma] = useState(props.info.diploma);
+  const [start, setStart] = useState(props.info.start);
+  const [end, setEnd] = useState(props.info.end);
 
-    this.state = {
-      name: this.props.info.name,
-      location: this.props.info.location,
-      diploma: this.props.info.diploma,
-      start: this.props.info.start,
-      end: this.props.info.end,
-    };
+  const remove = () => {
+    props.deleteInput(props.index);
+  };
 
-    this.handleClick = this.handleClick.bind(this);
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onChange(e) {
-    this.setState(
-      {
-        [e.target.id]: e.target.value,
-      },
-      this.submitChange
-    );
-  }
-
-  submitChange() {
-    this.props.onChange(
-      this.props.index,
-      EducationInfo(
-        this.state.name,
-        this.state.location,
-        this.state.diploma,
-        this.state.start,
-        this.state.end
-      )
-    );
-  }
-
-  handleClick() {
-    this.setState({
-      name: undefined,
-      location: undefined,
-      diploma: undefined,
-      start: undefined,
-      end: undefined,
+  useEffect(() => {
+    props.onChange(props.index, {
+      name: name,
+      location: location,
+      diploma: diploma,
+      start: start,
+      end: end,
     });
-    this.props.deleteInput(this.props.index);
-  }
+  }, [name, location, diploma, start, end]);
 
-  render() {
-    return (
-      <div className="inputs-container">
-        <label>College Name:</label>
-        <input
-          type={"text"}
-          id="name"
-          value={this.props.info.name}
-          onChange={this.onChange}
-        />
-        <label>College Location:</label>
-        <input
-          type={"text"}
-          id="location"
-          value={this.props.info.location}
-          onChange={this.onChange}
-        />
-        <label>Diploma:</label>
-        <input
-          type={"text"}
-          id="diploma"
-          value={this.props.info.diploma}
-          onChange={this.onChange}
-        />
-        <label>Start Date:</label>
-        <input
-          type={"text"}
-          id="start"
-          value={this.props.info.start}
-          onChange={this.onChange}
-        />
-        <label>End Date:</label>
-        <input
-          type={"text"}
-          id="end"
-          value={this.props.info.end}
-          onChange={this.onChange}
-        />
-        <button className="mid-length-button" onClick={this.handleClick}>
-          Remove
-        </button>
-      </div>
-    );
-  }
+  useEffect(() => {
+    setName(props.info.name);
+    setLocation(props.info.location);
+    setDiploma(props.info.diploma);
+    setStart(props.info.start);
+    setEnd(props.info.end);
+  }, [props.info]);
+
+  return (
+    <div className="inputs-container">
+      <label>College Name:</label>
+      <input value={name} onChange={(e) => setName(e.target.value)} />
+      <label>College Location:</label>
+      <input value={location} onChange={(e) => setLocation(e.target.value)} />
+      <label>Diploma:</label>
+      <input value={diploma} onChange={(e) => setDiploma(e.target.value)} />
+      <label>Start Date:</label>
+      <input value={start} onChange={(e) => setStart(e.target.value)} />
+      <label>End Date:</label>
+      <input value={end} onChange={(e) => setEnd(e.target.value)} />
+      <button className="mid-length-button" onClick={remove}>
+        Remove
+      </button>
+    </div>
+  );
 }
 
 export default EducationInputItem;

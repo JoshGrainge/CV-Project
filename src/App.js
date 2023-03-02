@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect, Component } from "react";
 import "./App.css";
 import Resume from "./components/Resume";
 import HeaderInputs from "./components/HeaderInputs";
@@ -6,11 +6,50 @@ import EducationInputs from "./components/EducationInputs";
 import ExperienceInputs from "./components/ExperienceInputs";
 import ProjectsInputs from "./components/ProjectsInputs";
 import TechnicalSkillsInputs from "./components/TechnicalSkillsInputs";
+import EducationInfo from "./EducationInfo";
 
-class App extends Component {
+function App() {
+  const [infos, setInfos] = useState({
+    headerInfo: {},
+    educationInfos: [],
+    experienceInfos: [],
+    projectsInfos: [],
+    technicalSkillInfos: [],
+  });
+
+  const updateEducationInfos = (newEducationInfos) => {
+    setInfos({
+      ...infos,
+      educationInfos: newEducationInfos,
+    });
+  };
+
+  return (
+    <div className="main-container">
+      <div id="input-section">
+        {/* <HeaderInputs onChange={headerInfo} /> */}
+        <EducationInputs onChange={updateEducationInfos} />
+        {/* <ExperienceInputs onChange={experienceInfos} />
+        <ProjectsInputs onChange={setProjectsInfos} />
+        <TechnicalSkillsInputs onChange={setTechnicalSkillInfos} /> */}
+        {/* <button onClick={this.print} className="large-button">
+          Print
+        </button> */}
+      </div>
+      <Resume
+        headerInfo={infos.headerInfo}
+        educationInfos={infos.educationInfos}
+        experienceInfos={infos.experienceInfos}
+        projectInfos={infos.projectsInfos}
+        technicalSkillInfos={infos.technicalSkillInfos}
+      />
+    </div>
+  );
+}
+
+class AppClass extends Component {
   constructor(props) {
     super(props);
-    this.props = props;
 
     this.state = {
       headerInfo: {},
@@ -25,6 +64,8 @@ class App extends Component {
     this.updateExperienceInfos = this.updateExperienceInfos.bind(this);
     this.updateProjectInfos = this.updateProjectInfos.bind(this);
     this.updateTechnicalSkillInfos = this.updateTechnicalSkillInfos.bind(this);
+    this.deleteEducation = this.deleteEducation.bind(this);
+    this.addEducation = this.addEducation.bind(this);
     this.print = this.print.bind(this);
   }
 
@@ -34,9 +75,31 @@ class App extends Component {
     });
   }
 
-  updateEducationInfos(newEducationInfos) {
+  updateEducationInfos(index, newEducationInfo) {
+    const newInfos = this.state.educationInfos;
+    newInfos[index] = newEducationInfo;
+    this.setState({
+      educationInfos: newInfos,
+    });
+  }
+
+  deleteEducation(index) {
+    let newEducationInfos = this.state.educationInfos;
+    newEducationInfos.splice(index, 1);
     this.setState({
       educationInfos: newEducationInfos,
+    });
+  }
+
+  addEducation() {
+    console.log("Adding education");
+    this.setState((state) => {
+      return {
+        educationInfos: [
+          ...state.educationInfos,
+          EducationInfo("", "", "", "", "", ""),
+        ],
+      };
     });
   }
 
@@ -70,11 +133,18 @@ class App extends Component {
   }
 
   render() {
+    const length = this.state.educationInfos.length;
+    console.log(length);
     return (
       <div className="main-container">
         <div id="input-section">
           <HeaderInputs onChange={this.updateHeaderInfo} />
-          <EducationInputs onChange={this.updateEducationInfos} />
+          <EducationInputs
+            count={length}
+            onChange={this.updateEducationInfos}
+            deleteInput={this.deleteEducation}
+            addInput={this.addEducation}
+          />
           <ExperienceInputs onChange={this.updateExperienceInfos} />
           <ProjectsInputs onChange={this.updateProjectInfos} />
           <TechnicalSkillsInputs onChange={this.updateTechnicalSkillInfos} />
