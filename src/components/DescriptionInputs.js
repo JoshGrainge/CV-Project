@@ -1,86 +1,56 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import DescriptionInputItem from "./DescriptionInputItem";
 
-class DescriptionInputs extends Component {
-  constructor(props) {
-    super(props);
+let inputs = [];
 
-    this.state = {
-      descriptions: this.props.descriptions,
-    };
+function DescriptionInputs(props) {
+  const [descriptions, setDescriptions] = useState(props.descriptions);
 
-    this.onChange = this.onChange.bind(this);
-    this.addInput = this.addInput.bind(this);
-    this.deleteInput = this.deleteInput.bind(this);
-    this.submitChanges = this.submitChanges.bind(this);
-  }
+  useEffect(() => {
+    props.onChange(descriptions);
 
-  onChange(index, newDescription) {
-    const newDescriptionInputs = [...this.state.descriptions];
-    newDescriptionInputs[index] = newDescription;
+    // Reassign description inputs
+    inputs = [];
+    for (let i = 0; i < descriptions.length; i++) {
+      inputs.push(
+        <DescriptionInputItem
+          key={i}
+          index={i}
+          description={descriptions[i]}
+          deleteInput={removeInput}
+          onChange={changeInput}
+        />
+      );
+    }
+  }, [descriptions]);
 
-    this.setState(
-      {
-        descriptions: newDescriptionInputs,
-      },
-      this.submitChanges
-    );
-  }
+  const removeInput = (index) => {
+    setDescriptions([
+      ...descriptions.slice(0, index),
+      ...descriptions.slice(index + 1),
+    ]);
+  };
 
-  addInput() {
-    const newDescriptions = [...this.state.descriptions, ""];
+  const changeInput = (index, newInput) => {
+    setDescriptions([
+      ...descriptions.slice(0, index),
+      newInput,
+      ...descriptions.slice(index + 1),
+    ]);
+  };
 
-    this.setState(
-      {
-        descriptions: newDescriptions,
-      },
-      this.submitChanges
-    );
-  }
+  const addInput = () => {
+    setDescriptions([...descriptions, "Function"]);
+  };
 
-  deleteInput(index) {
-    const newDescriptions = this.state.descriptions.filter((_, i) => {
-      return index !== i;
-    });
-
-    this.setState(
-      {
-        descriptions: newDescriptions,
-      },
-      this.submitChanges
-    );
-  }
-
-  submitChanges() {
-    const r = {
-      target: {
-        id: "descriptions",
-        value: this.state.descriptions,
-      },
-    };
-    this.props.onChange(r);
-  }
-
-  render() {
-    return (
-      <div className="full-width">
-        {this.state.descriptions.map((description, i) => {
-          return (
-            <DescriptionInputItem
-              key={i}
-              index={i}
-              description={description}
-              deleteInput={this.deleteInput}
-              onChange={this.onChange}
-            />
-          );
-        })}
-        <button className="circle-button" onClick={this.addInput}>
-          +
-        </button>
-      </div>
-    );
-  }
+  return (
+    <div className="full-width">
+      {inputs}
+      <button className="circle-button" onClick={addInput}>
+        +
+      </button>
+    </div>
+  );
 }
 
 export default DescriptionInputs;

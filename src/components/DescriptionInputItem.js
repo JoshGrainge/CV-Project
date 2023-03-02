@@ -1,50 +1,33 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 
-class DescriptionInputItem extends Component {
-  constructor(props) {
-    super(props);
-    this.props = props;
+function DescriptionInputItem(props) {
+  const [description, setDescription] = useState(props.description);
 
-    this.onChange = this.onChange.bind(this);
-    this.submitChange = this.submitChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
+  const remove = () => {
+    props.deleteInput(props.index);
+  };
 
-  onChange(e) {
-    this.setState(
-      {
-        description: e.target.value,
-      },
-      this.submitChange
-    );
-  }
+  useEffect(() => {
+    props.onChange(props.index, description);
+  }, [description]);
 
-  submitChange(e) {
-    this.props.onChange(this.props.index, this.state.description);
-  }
+  useEffect(() => {
+    setDescription(props.description);
+  }, [props.description]);
 
-  handleClick() {
-    this.setState({
-      description: undefined,
-    });
-    this.props.deleteInput(this.props.index);
-  }
-
-  render() {
-    return (
-      <div className="description-container">
-        <input
-          type={"text"}
-          id="descriptions"
-          value={this.props.description}
-          onChange={this.onChange}
-        />
-        <button className="circle-button" onClick={this.handleClick}>
-          x
-        </button>
-      </div>
-    );
-  }
+  return (
+    <div className="description-container">
+      <input
+        type={"text"}
+        id="descriptions"
+        value={props.description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
+      <button className="circle-button" onClick={remove}>
+        x
+      </button>
+    </div>
+  );
 }
 
 export default DescriptionInputItem;
