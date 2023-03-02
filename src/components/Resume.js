@@ -43,6 +43,9 @@ class Resume extends Component {
 
     return (
       <div id="resume-container">
+        {console.log(
+          "resume header info: " + JSON.stringify(this.props.headerInfo)
+        )}
         <ResumeHeader info={this.props.headerInfo} />
 
         <div className="resume-body">

@@ -1,79 +1,43 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import HeaderInfo from "../HeaderInfo";
 
-class HeaderInputs extends Component {
-  constructor(props) {
-    super(props);
+function HeaderInputs(props) {
+  const [info, setInfo] = useState(
+    HeaderInfo("Full Name", "Location", "555-5555", "Email@email.com")
+  );
 
-    this.state = {
-      name: "Full Name",
-      location: "Location",
-      phone: "555-5555",
-      email: "Email@email.com",
+  useEffect(() => {
+    props.onChange(info);
+  }, [info]);
+
+  const updateInfo = (e) => {
+    const newInfo = {
+      ...info,
+      [e.target.id]: e.target.value,
     };
 
-    this.onChange = this.onChange.bind(this);
+    setInfo(newInfo);
+  };
 
-    this.submitChange();
-  }
-
-  onChange(e) {
-    this.setState(
-      {
-        [e.target.id]: e.target.value,
-      },
-      this.submitChange
-    );
-  }
-
-  submitChange() {
-    this.props.onChange(
-      HeaderInfo(
-        this.state.name,
-        this.state.location,
-        this.state.phone,
-        this.state.email
-      )
-    );
-  }
-
-  render() {
-    return (
-      <div id="header-inputs" className="section-inputs">
-        <h3>Personal Info:</h3>
-        <div className="inputs-container">
-          <label>Name:</label>
-          <input
-            type={"text"}
-            id={"name"}
-            value={this.state.name}
-            onChange={this.onChange}
-          ></input>
-          <label>Address:</label>
-          <input
-            type={"text"}
-            id={"location"}
-            value={this.state.location}
-            onChange={this.onChange}
-          ></input>
-          <label>Phone:</label>
-          <input
-            type={"text"}
-            id={"phone"}
-            value={this.state.phone}
-            onChange={this.onChange}
-          ></input>
-          <label>Email:</label>
-          <input
-            type={"text"}
-            id={"email"}
-            value={this.state.email}
-            onChange={this.onChange}
-          ></input>
-        </div>
+  return (
+    <div id="header-inputs" className="section-inputs">
+      <h3>Personal Info:</h3>
+      <div className="inputs-container">
+        <label>Name:</label>
+        <input id="name" value={info.name} onChange={updateInfo}></input>
+        <label>Address:</label>
+        <input
+          id="location"
+          value={info.location}
+          onChange={updateInfo}
+        ></input>
+        <label>Phone:</label>
+        <input id="phone" value={info.phone} onChange={updateInfo}></input>
+        <label>Email:</label>
+        <input id="email" value={info.email} onChange={updateInfo}></input>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default HeaderInputs;
