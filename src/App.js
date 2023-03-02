@@ -3,6 +3,7 @@ import "./App.css";
 import Resume from "./components/Resume";
 import HeaderInputs from "./components/HeaderInputs";
 import EducationInputs from "./components/EducationInputs";
+import ExperienceInputs from "./components/ExperienceInputs";
 
 function App() {
   const [infos, setInfos] = useState({
@@ -27,13 +28,20 @@ function App() {
     });
   };
 
+  const updateExperienceInfos = (newExperienceInfos) => {
+    setInfos({
+      ...infos,
+      experienceInfos: newExperienceInfos,
+    });
+  };
+
   return (
     <div className="main-container">
       <div id="input-section">
         <HeaderInputs onChange={updateHeaderInfo} />
         <EducationInputs onChange={updateEducationInfos} />
-        {/* <ExperienceInputs onChange={experienceInfos} />
-        <ProjectsInputs onChange={setProjectsInfos} />
+        <ExperienceInputs onChange={updateExperienceInfos} />
+        {/* <ProjectsInputs onChange={setProjectsInfos} />
         <TechnicalSkillsInputs onChange={setTechnicalSkillInfos} /> */}
         {/* <button onClick={this.print} className="large-button">
           Print
